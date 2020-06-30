@@ -9,6 +9,7 @@ require("./dao/db");
 var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 var schedulesRouter = require('./routes/schedules');
+var cinemasRouter = require('./routes');
 
 
 var app = express();

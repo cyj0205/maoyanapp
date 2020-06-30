@@ -12,12 +12,12 @@ window.onstorage = function ({ key, newValue }) {
         useToken();
     }
 }
-import pager from "../util/pager.js";
+// import pager from "../util/pager.js";
 
 //渲染
 export async function getStudents(userTxt) {
     const { data } = await axiosIns.get(
-        "/api/students/",
+        "/api/schedules/",
         {
             params: { limit: pager.limit, page: pager.page }
         }
@@ -28,7 +28,7 @@ export async function getStudents(userTxt) {
 
 //删除
 export async function delStudents({ _id }) {
-    const { data } = await axiosIns.delete("/api/students/" + _id)
+    const { data } = await axiosIns.delete("/api/schedules/" + _id)
     return data;
 }
 
@@ -36,7 +36,7 @@ export async function delStudents({ _id }) {
 //修改
 export async function updateStudents(stuTxt, _id) {
     const { data } = await axiosIns.put(
-        "/api/students/" + _id,
+        "/api/schedules/" + _id,
         stuTxt
     );
     return data;
@@ -46,7 +46,7 @@ export async function updateStudents(stuTxt, _id) {
 //添加
 export async function addStudents(studentsTxt) {
     const { data } = await axiosIns.post(
-        "/api/students/",
+        "/api/schedules/",
         studentsTxt
     )
     return data;
@@ -73,18 +73,20 @@ export function upload(url, keyName, file) {
     })
 }
 
-export async function deletePic(file) {
-    const { data } = await axiosIns.post(
-        "/students/deletePic",
-        {file}
-        )
-    return data;
-}
+// export async function deletePic(file) {
+//     const { data } = await axiosIns.post(
+//         "/students/deletePic",
+//         {file}
+//         )
+//     return data;
+// }
 
 export async function searchStudents(condition) {
     const {data} = await axiosIns.post(
-        "/api/students/searchStudents",
+        "/api/schedules/searchStudents",
         condition
     )
+    console.log(data);
+    
     return data;
 }
