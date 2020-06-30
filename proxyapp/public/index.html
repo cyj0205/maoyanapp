@@ -17,6 +17,9 @@
             height: 100%;
             padding: 0;
             margin: 0;
+          
+            /* display: flex;
+            justify-content:space-around; */
         }
 
         #root {
@@ -59,34 +62,6 @@
     <script src="./javascripts/mock.js"></script>
     <script src="./javascripts/director.js"></script>
     <script type="module" src="./app.js"></script>
-    <!-- <script>
-        function upload(url, keyName, file) {
-            //url:上传的服务器接口。
-            //keyName：上传的文件的key。
-            //file：上传的文件（由input[type='file']获取）
-            return new Promise(r => {
-                const fd = new FormData();
-                fd.append(keyName, file);//键的名字必须与服务器对应
-                $.ajax({
-                    url,
-                    type: "post",//*** 
-                    data: fd,//*** 
-                    cache: false,//上传文件无需缓存
-                    contentType: false,//*** //数据的解析类型，不需要，我们上传2进制数据，没有类型
-                    processData: false,//*** //用于对data参数进行序列化处理 这里必须false
-                    success(data) {
-                        r(data)
-                    }
-                })
-            })
-        }
-        $("input[type = 'file']").on("input", async function () {
-            const file = this.files[0];
-            let data = await upload("/students/upload", "file", file);
-            console.log(data);
-            
-        }) -->
-    </script>
 </body>
 
 </html>

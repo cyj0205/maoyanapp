@@ -10,6 +10,10 @@ const cinemasSchema = mongoose.Schema({
 }, { versionKey: false });
 // const cinemasModel = mongoose.model('cinemas', cinemasSchema);
 
+<<<<<<< HEAD
 mongoose.model('cinemasModel', cinemasSchema, 'cinemas');
+=======
+mongoose.model('cinemasModel',cinemasSchema,'cinemas');
+>>>>>>> 017d0a72eb220c21f052a4c85e654d0830021125
 
 module.exports = mongoose.model('cinemasModel')
