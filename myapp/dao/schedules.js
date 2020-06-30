@@ -1,4 +1,5 @@
 const schedulesModel = require("./models/schedulesModel");
+// const cinemasModel = require("./models//cinemasModel");
 
 const dao = {};
 
@@ -11,14 +12,12 @@ dao.findschedules = async ({ limit,page,condition }) => {
             }
         }
     }
-    
     const count = await schedulesModel.countDocuments();
     const students = await schedulesModel
     .find(condition ? condition : {})
     .populate("cinemasId")
     .skip((page-1)*limit)
     .limit(limit);
-    
     return {
         count,
         rows:students

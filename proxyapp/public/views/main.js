@@ -32,48 +32,28 @@ export default class extends Base {
                         <li class="layui-nav-item layui-nav-itemed">
                             <a class="" href="javascript:;">功能选择</a>
                             <dl class="layui-nav-child">
-<<<<<<< HEAD
+
                                 <dd><a data-name="排片管理" data-id="schedules" href="javascript:;"><i
                                             class="layui-icon layui-icon-edit"
                                             style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>排片管理</a></dd>
-                                <dd><a data-name="影院管理" data-id="cinemas" href="javascript:;"><i
-                                            class="layui-icon layui-icon-edit"
-                                            style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>影院管理</a></dd>
-=======
-                                <dd>
-                                    <a data-name="学生信息" data-id="info" href="javascript:;">
-                                    <i class="layui-icon layui-icon-table" style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>
-                                     学生信息
-                                     </a>
-                                </dd>
-                                <dd>
-                                    <a data-name="添加学生" data-id="add" href="javascript:;">
-                                    <i class="layui-icon layui-icon-addition" style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>添加学生
-                                    </a>
-                                </dd>
-                                <dd>
-                                    <a data-name="修改学生" data-id="update" href="javascript:;">
-                                    <i class="layui-icon layui-icon-edit" style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>修改学生
-                                    </a>
-                                </dd>
                                 <dd>
                                     <a data-name="影院管理" data-id="cinemas" href="javascript:;">
                                     <i class="layui-icon layui-icon-edit"  style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>影院管理
                                     </a>
                                 </dd>
                                             
->>>>>>> 017d0a72eb220c21f052a4c85e654d0830021125
+
                             </dl>
                         </li>
                     </ul>
                 </div>
             </div>
     
-<<<<<<< HEAD
+
             <div class="layui-body" style="left: 120px;" id="test">
-=======
+
             <div class="layui-body" style="left: 120px;" id="test" >
->>>>>>> 017d0a72eb220c21f052a4c85e654d0830021125
+
                 <!-- 内容主体区域 -->
                 <div class="layui-tab" lay-allowClose="true" style="margin-top: 0px;" lay-filter="content" >
                     <ul class="layui-tab-title">

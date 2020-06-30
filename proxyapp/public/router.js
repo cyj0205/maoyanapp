@@ -1,24 +1,24 @@
 // import Login from "./views/login.js";
 // import Reg from "./views/reg.js";
 // import Info from "./views/students/info.js";
-<<<<<<< HEAD
+
 import UpdateSchedules from "./views/updateSchedules.js";
 import AddSchedules from "./views/addSchedules.js";
-import Main from "./views/main.js";
+
 import Schedules from "./views/schedules.js";
-=======
+
 // import Update from "./views/students/update.js";
 // import Add from "./views/students/add.js";
 import Main from "./views/main.js";
 import Cinemas from "./views/cinemas.js";
 import AddCinemas from "./views/addCinemas.js";
 import UpdateCinemas from "./views/updateCinemas.js";
->>>>>>> 017d0a72eb220c21f052a4c85e654d0830021125
+
 
 
 const pages = {}//用来实时的保存挂载的页面有哪些 
 var routes = {
-<<<<<<< HEAD
+
 //     // '/login': () => {
 //     //     pages.Login = new Login("#root");
 //     // },
@@ -26,14 +26,14 @@ var routes = {
 //     // '/reg': () => {
 //     //     pages.Reg = new Reg("#root");
 //     // },
-=======
+
     // '/login': () => {
     //     pages.Login = new Login("#root");
     // },
     // '/reg': () => {
     //     pages.Reg = new Reg("#root");
     // },
->>>>>>> 017d0a72eb220c21f052a4c85e654d0830021125
+
     '/admins': {
         on() {
             if ($("#admins-main").length === 0) {
@@ -54,7 +54,7 @@ var routes = {
         //     }
         //     layui.element.tabChange('content', "info");
         // },
-<<<<<<< HEAD
+
         "/schedules": () => {
             // console.log('jinru schedules')
             const $wrap = $("#schedules");
@@ -69,7 +69,7 @@ var routes = {
                 pages.Schedules = new Schedules("#schedules");
             }
             layui.element.tabChange('content', "schedules");
-=======
+        },
         // "/add": () => {
         //     const $wrap = $("#add");
         //     if ($wrap.length === 1) {
@@ -111,7 +111,7 @@ var routes = {
         },
         "/updateCinemas": () => {
             pages.UpdateCinemas = new UpdateCinemas("#test");
->>>>>>> 017d0a72eb220c21f052a4c85e654d0830021125
+
         },
 
         // "/addSchedules": () => {

@@ -1,5 +1,7 @@
 //连接数据库
 const mongoose = require('mongoose');
+require('./models/cinemasModel')
+require('./models/schedulesModel')
 const dbname = "maoyan";
 mongoose.connect(
   'mongodb://localhost/' + dbname,

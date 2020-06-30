@@ -8,14 +8,14 @@ const {secretKey} = require("./util/salt");
 const {targetUrl} = require("./util/baseConfig");
 
 var indexRouter = require('./routes/index');
-<<<<<<< HEAD
+
 
 // var usersRouter = require('./routes/users');
 // var schedulesRouter = require('./routes/schedules');
-=======
+
 // var usersRouter = require('./routes/users');
 // var studentsRouter = require('./routes/students');
->>>>>>> 017d0a72eb220c21f052a4c85e654d0830021125
+
 
 var app = express();
 
@@ -49,11 +49,10 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 // app.use('/users', usersRouter);
-<<<<<<< HEAD
 // app.use('/schedules', schedulesRouter);
-=======
+
 // app.use('/students', studentsRouter);
->>>>>>> 017d0a72eb220c21f052a4c85e654d0830021125
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

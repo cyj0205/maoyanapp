@@ -9,8 +9,9 @@ const schedulesSchema = mongoose.Schema({
   showTime: String, // 
   price: Number, // 
 }, { versionKey: false });
-const schedulesModel = mongoose.model('schedules', schedulesSchema);
+
+mongoose.model('schedulesModel', schedulesSchema,'schedules');
 //"users"必须与数据库集合名称一致
 
 
-module.exports = schedulesModel;
+module.exports =  mongoose.model('schedulesModel');
