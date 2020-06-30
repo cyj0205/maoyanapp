@@ -7,10 +7,15 @@ var logger = require('morgan');
 require("./dao/db");
 
 var indexRouter = require('./routes/index');
+<<<<<<< HEAD
 // // var usersRouter = require('./routes/users');
 // var studentsRouter = require('./routes/students');
 // var clazzsRouter = require('./routes/clazzs');
 var cinemasRouter = require('./routes/cinemas');
+=======
+// var usersRouter = require('./routes/users');
+var schedulesRouter = require('./routes/schedules');
+>>>>>>> ccc2b440d42137fbff7895207a94c74bade393ec
 
 
 var app = express();
@@ -27,9 +32,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 // app.use('/users', usersRouter);
+<<<<<<< HEAD
 // app.use('/students', studentsRouter); 
 // app.use('/clazzs', clazzsRouter); 
 app.use('/cinemas', cinemasRouter); 
+=======
+app.use('/schedules', schedulesRouter);
+>>>>>>> ccc2b440d42137fbff7895207a94c74bade393ec
 
 
 // catch 404 and forward to error handler
