@@ -14,6 +14,10 @@ const {targetUrl} = require("./util/baseConfig");
 // var indexRouter = require('./routes/index');
 
 // var usersRouter = require('./routes/users');
+// var studentsRouter = require('./routes/students');
+=======
+<<<<<<< HEAD
+// var usersRouter = require('./routes/users');
 var moviesRouter = require('./routes/movies');
 
 // var seatsRouter = require('./routes/seats');
@@ -26,7 +30,13 @@ var moviesRouter = require('./routes/movies');
 // var usersRouter = require('./routes/users');
 // var studentsRouter = require('./routes/students');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
+>>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757
+>>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
+>>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
 
 var app = express();
 
@@ -66,6 +76,15 @@ app.use(cookieParser());
 
 // app.use('/', indexRouter);
 
+<<<<<<< HEAD
+=======
+app.use('/', indexRouter);
+<<<<<<< HEAD
+// app.use('/users', usersRouter);
+// app.use('/students', studentsRouter);
+=======
+<<<<<<< HEAD
+>>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
 app.use('/movies', moviesRouter);
 // app.use('/students', studentsRouter);
 
@@ -76,7 +95,13 @@ app.use('/movies', moviesRouter);
 
 // app.use('/students', studentsRouter);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
+>>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757
+>>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
+>>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
 
 app.use(function(req, res, next) {
   next(createError(404));

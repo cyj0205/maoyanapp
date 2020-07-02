@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+ 
 /**
  * Module dependencies.
  */
@@ -12,7 +12,15 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
  
+<<<<<<< HEAD
 var port = normalizePort(process.env.PORT || '4444');
+=======
+<<<<<<< HEAD
+var port = normalizePort(process.env.PORT || '4441');
+=======
+var port = normalizePort(process.env.PORT || '3003');
+>>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
+>>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
 app.set('port', port);
 
 /**
