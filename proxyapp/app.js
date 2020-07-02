@@ -5,10 +5,21 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const {targetUrl} = require("./util/baseConfig");
 
+<<<<<<< HEAD
 // var indexRouter = require('./routes/index');
 
 // var seatsRouter = require('./routes/seats');
 
+=======
+var indexRouter = require('./routes/index');
+<<<<<<< HEAD
+// var usersRouter = require('./routes/users');
+var moviesRouter = require('./routes/movies');
+=======
+<<<<<<< HEAD
+var seatsRouter = require('./routes/seats');
+=======
+>>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
 
 
 // var usersRouter = require('./routes/users');
@@ -17,7 +28,12 @@ const {targetUrl} = require("./util/baseConfig");
 // var usersRouter = require('./routes/users');
 // var studentsRouter = require('./routes/students');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
+>>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757
+>>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
 
 var app = express();
 
@@ -53,12 +69,28 @@ app.use(cookieParser());
 
 // app.use('/seats', seatsRouter);
 
+<<<<<<< HEAD
+=======
+app.use('/', indexRouter);
+<<<<<<< HEAD
+app.use('/movies', moviesRouter);
+// app.use('/students', studentsRouter);
+=======
+<<<<<<< HEAD
+app.use('/seats', seatsRouter);
+=======
+>>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
 // app.use('/users', usersRouter);
 // app.use('/schedules', schedulesRouter);
 
 // app.use('/students', studentsRouter);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
+>>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757
+>>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
 
 app.use(function(req, res, next) {
   next(createError(404));
