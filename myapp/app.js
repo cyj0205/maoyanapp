@@ -6,13 +6,13 @@ var logger = require('morgan');
 
 require("./dao/db");
 
-var indexRouter = require('./routes/index');
-<<<<<<< HEAD
+// var indexRouter = require('./routes/index');
+
 var seatsRouter = require('./routes/seats');
-var cinemasRouter = require('./routes/cinemasCk');
-var theatersRouter = require('./routes/theatersCk');
+var cinemasRouterCk = require('./routes/cinemasCk');
+var theatersRouterCk = require('./routes/theatersCk');
 var badSeatsRouter = require('./routes/badSeats');
-=======
+
 
 // // var usersRouter = require('./routes/users');
 // var studentsRouter = require('./routes/students');
@@ -26,7 +26,7 @@ var schedulesRouter = require('./routes/schedules');
 
 
 
->>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
+
 
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -38,14 +38,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-<<<<<<< HEAD
-app.use('/', indexRouter); 
+
+// app.use('/', indexRouter); 
 app.use('/seats', seatsRouter); 
-app.use('/cinemasCk', cinemasRouter); 
-app.use('/theatersCk', theatersRouter); 
+app.use('/cinemasCk', cinemasRouterCk); 
+app.use('/theatersCk', theatersRouterCk); 
 app.use('/badSeats', badSeatsRouter); 
-=======
-app.use('/', indexRouter);
+
+// app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 
 // app.use('/students', studentsRouter); 
@@ -55,7 +55,7 @@ app.use('/cinemas', cinemasRouter);
 app.use('/schedules', schedulesRouter);
 
 
->>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
+
 
 app.use(function(req, res, next) {
   next(createError(404));

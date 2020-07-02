@@ -5,10 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const {targetUrl} = require("./util/baseConfig");
 
-var indexRouter = require('./routes/index');
-<<<<<<< HEAD
-var seatsRouter = require('./routes/seats');
-=======
+// var indexRouter = require('./routes/index');
+
+// var seatsRouter = require('./routes/seats');
+
 
 
 // var usersRouter = require('./routes/users');
@@ -17,11 +17,12 @@ var seatsRouter = require('./routes/seats');
 // var usersRouter = require('./routes/users');
 // var studentsRouter = require('./routes/students');
 
->>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
+
 
 var app = express();
 
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const router = require('../myapp/routes/cinemasCk');
 const options = {
   target: targetUrl, // target host
   changeOrigin: true, // needed for virtual hosted sites
@@ -46,18 +47,18 @@ app.set('view engine', 'jade');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.use("/",router)
 
+// app.use('/', indexRouter);
 
-app.use('/', indexRouter);
-<<<<<<< HEAD
-app.use('/seats', seatsRouter);
-=======
+// app.use('/seats', seatsRouter);
+
 // app.use('/users', usersRouter);
 // app.use('/schedules', schedulesRouter);
 
 // app.use('/students', studentsRouter);
 
->>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
+
 
 app.use(function(req, res, next) {
   next(createError(404));

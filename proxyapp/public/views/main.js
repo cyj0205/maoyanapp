@@ -29,27 +29,21 @@ export default class extends Base {
                         <li class="layui-nav-item layui-nav-itemed">
                             <a class="" href="javascript:;">功能选择</a>
                             <dl class="layui-nav-child">
-<<<<<<< HEAD
-                            
                                 <dd><a data-name="座位查询" data-id="inquireSeats" href="javascript:;"><i
                                             class="layui-icon layui-icon-addition"
                                             style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>座位查询</a></dd>
                                                         </dl>
-=======
                                 <dd><a data-name="排片管理" data-id="schedules" href="javascript:;"><i
                                             class="layui-icon layui-icon-edit"
                                             style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>排片管理</a>
                                 </dd>
                                 
-                                <dd>
-                                    <a data-name="影院管理" data-id="cinemas" href="javascript:;">
+                                <dd><a data-name="影院管理" data-id="cinemas" href="javascript:;">
                                     <i class="layui-icon layui-icon-edit"  style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>影院管理
                                     </a>
                                 </dd>
-                                            
 
                             </dl>
->>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
                         </li>
                     </ul>
                 </div>
@@ -99,12 +93,12 @@ export default class extends Base {
                     , id
                 });
             }
-<<<<<<< HEAD
-            location.hash = "#/admins/"+`${id}`;
-=======
+
+            // location.hash = "#/admins/"+`${id}`;
+
             location.hash = "#/admins/"+id;
             
->>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
+
         });
         layui.element.on('tab(content)',function(data){
             location.hash = "/admins"+$(this).attr("lay-id");

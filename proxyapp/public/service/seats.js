@@ -1,6 +1,10 @@
 
 export async function getSeats(_id,userTxt) {
+    console.log(1111);
+    
     const { data } = await axios.get('/api/seats/'+_id, userTxt)
+    console.log(data,"111");
+    
     return data;
 }
 export async function updateSeats(userTxt) {
@@ -9,8 +13,9 @@ export async function updateSeats(userTxt) {
 }
 //===================================================================================
 
-export async function getCinemas(_id,userTxt) {
-    const { data } = await axios.get('/api/cinemasCk/'+_id, userTxt)
+export async function getCinemas() {
+    console.log(22222);
+    const { data } = await axios.get('/api/cinemasCk/');
     return data;
 } 
 export async function getTheaters(_id,userTxt) {

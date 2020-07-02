@@ -47,7 +47,8 @@ export default class extends Base {
       }
       $("#cinemasSelect").html(`${str}`);
       layui.form.render();
-    })()
+    })();
+    layui.form.render();
   }
   handler() {
     let theatersSeatsId;
@@ -114,7 +115,7 @@ export default class extends Base {
     //座位修改点击===================================================================================
     $("#seats-list").on("click", "td", function (e) {
       let dataId = e.target.dataset.id;
-      if (e.target.src == "http://localhost:3003/images/seatsImages/seat1.png") {
+      if (e.target.src == "http://localhost:4444/images/seatsImages/seat1.png") {
         $(e.target).attr("src", "../../images/seatsImages/seat4.png");
         (async function () {
           let addObj = {};
@@ -127,7 +128,7 @@ export default class extends Base {
             layer.msg("设置失败")
           }
         })()
-      } else if (e.target.src == "http://localhost:3003/images/seatsImages/seat4.png") {
+      } else if (e.target.src == "http://localhost:4444/images/seatsImages/seat4.png") {
         $(e.target).attr("src", "../../images/seatsImages/seat1.png");
         (async function () {
           const isDelete = await deleteBadSeats(dataId, theatersSeatsId);
