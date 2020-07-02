@@ -12,6 +12,7 @@ window.onstorage = function ({ key, newValue }) {
         useToken();
     }
 }
+<<<<<<< HEAD:proxyapp/public/service/movies.js
 import pager from "../util/pager.js";
 export async function getStudents() {
     const {data} = await axiosIns.get(
@@ -37,14 +38,51 @@ export async function addMovies(stuTxt) {
     
     const {data} = await axiosIns.post(
         "/api/movies/",
+=======
+// import pager from "../util/pager.js";
+
+//渲染
+export async function getStudents(userTxt) {
+    const { data } = await axiosIns.get(
+        "/api/schedules/",
+        // {
+        //     params: { limit: pager.limit, page: pager.page }
+        // }
+    )
+    return data;
+}
+
+
+//删除
+export async function delStudents({ _id }) {
+    const { data } = await axiosIns.delete("/api/schedules/" + _id)
+    return data;
+}
+
+
+//修改
+export async function updateStudents(stuTxt, _id) {
+    const { data } = await axiosIns.put(
+        "/api/schedules/" + _id,
+>>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757:proxyapp/public/service/students.js
         stuTxt
     )
     return data;
 }
+<<<<<<< HEAD:proxyapp/public/service/movies.js
 export async function updateMovies(_id,stuTxt) {
     const {data} = await axiosIns.put(
         "/api/movies/" + _id,
         stuTxt
+=======
+
+
+//添加
+export async function addStudents(studentsTxt) {
+    const { data } = await axiosIns.post(
+        "/api/schedules/",
+        studentsTxt
+>>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757:proxyapp/public/service/students.js
     )
     return data;
 }
@@ -68,10 +106,29 @@ export function upload( {keyName, file}) {
         })
     })
 }
+<<<<<<< HEAD:proxyapp/public/service/movies.js
 export async function deletePic(file) {
     const {data} = await axiosIns.post(
         "/movies/deletePic",
         {file}
+=======
+
+// export async function deletePic(file) {
+//     const { data } = await axiosIns.post(
+//         "/students/deletePic",
+//         {file}
+//         )
+//     return data;
+// }
+
+export async function searchStudents(condition) {  //搜索
+    console.log(condition);
+    
+    const {data} = await axiosIns.post(
+        "/api/schedules/searchStudents",
+        condition
+>>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757:proxyapp/public/service/students.js
     )
+    
     return data;
 }
