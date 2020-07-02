@@ -1,7 +1,4 @@
 import Base from "./base.js";
-// let isExcute = false;
-
-
 export default class extends Base {
     render() {
         const template =
@@ -32,16 +29,11 @@ export default class extends Base {
                         <li class="layui-nav-item layui-nav-itemed">
                             <a class="" href="javascript:;">学生管理</a>
                             <dl class="layui-nav-child">
-                                <dd><a data-name="学生信息" data-id="info" href="javascript:;"><i
-                                            class="layui-icon layui-icon-table"
-                                            style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>学生信息</a></dd>
-                                <dd><a data-name="添加学生" data-id="add" href="javascript:;"><i
+                            
+                                <dd><a data-name="座位查询" data-id="inquireSeats" href="javascript:;"><i
                                             class="layui-icon layui-icon-addition"
-                                            style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>添加学生</a></dd>
-                                <dd><a data-name="修改学生" data-id="update" href="javascript:;"><i
-                                            class="layui-icon layui-icon-edit"
-                                            style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>修改学生</a></dd>
-                            </dl>
+                                            style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>座位查询</a></dd>
+                                                        </dl>
                         </li>
                     </ul>
                 </div>
@@ -71,10 +63,6 @@ export default class extends Base {
         layui.element.render();
     }
     handler() {
-        // if (isExcute) {
-        //     return;
-        // }
-        // isExcute = true;
         const that = this;
         layui.element.on('nav(aside)', function ($elem) {
             const { id, name } = $elem[0].dataset
@@ -82,22 +70,21 @@ export default class extends Base {
                 return;
             }
             const existTab = $(`.layui-tab>.layui-tab-title>li[lay-id='${id}']`);
-            if (!existTab.length) {
+            if (!existTab.length) { 
                 layui.element.tabAdd('content', {
                     title: name
                     , content: `<div id="${id}"></div>`//支持传入html
                     , id
                 });
             }
-            location.hash = "#/students/"+id;
-            
+            location.hash = "#/admins/"+`${id}`;
         });
         layui.element.on('tab(content)',function(data){
-            location.hash = "/students"+$(this).attr("lay-id");
+            location.hash = "/admins"+$(this).attr("lay-id");
         })
         //暴力美学
         layui.element.on('tabdelete(content)',function(data){
-            location.hash = "/students";
+            location.hash = "/admins";
         })
     }
 }
