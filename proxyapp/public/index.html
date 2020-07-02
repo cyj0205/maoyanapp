@@ -33,15 +33,17 @@
     <script type="text/html" id="toolbarSearch">
         <div class="layui-form" lay-filter="search-form">
             <div class="demoTable">
-                <div class="layui-inline" style="width:70px">
+                <div class="layui-inline" style="width:100px">
                     <select name="search">
-                        <option value="name">姓名</option>
+                        <option value=name>放映厅</option>
+                        <option value=cinemasId>影院</option>
                       </select> 
                   </div>
                 <div class="layui-inline">
                   <input class="layui-input" name="searchValue" id="search-value" lay-filter="search-value" autocomplete="off">
                 </div>
                 <button class="layui-btn"  lay-event="search">搜索</button>
+                <button class="layui-btn"  id="aftermonttheater" lay-event="search">返回放映厅</button>
               </div>
         </div>
       </script>

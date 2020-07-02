@@ -7,10 +7,12 @@ var logger = require('morgan');
 require("./dao/db");
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var studentsRouter = require('./routes/students');
-var clazzsRouter = require('./routes/clazzs');
-
+// var usersRouter = require('./routes/users');
+// var studentsRouter = require('./routes/students');
+// var clazzsRouter = require('./routes/clazzs');
+var theatersRouter = require('./routes/theaters');
+var GetcinemaRouter = require('./routes/Getcinema');
+// var cinemasRouter = require('./routes/theaters');
 var app = express();
 
 // view engine setup
@@ -24,9 +26,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/students', studentsRouter); 
-app.use('/clazzs', clazzsRouter); 
+// app.use('/users', usersRouter);
+// app.use('/students', studentsRouter); 
+app.use('/theaters', theatersRouter); 
+app.use('/Getcinema', GetcinemaRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
