@@ -18,8 +18,7 @@ export default class extends Base {
                 <div class="layui-form-item">
                     <label class="layui-form-label">影院</label>
                     <div class="layui-input-block" style="width: 200px;">
-                        <input type="text" name="cinemasId" required lay-verify="required" placeholder="请输入姓名" autocomplete="off"
-                            class="layui-input">
+                    <select name="cinemasId" required lay-verify="required" placeholder="请选择影院" autocomplete="off"></select>
                     </div>
                 </div>
                 

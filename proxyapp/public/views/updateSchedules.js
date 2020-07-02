@@ -24,8 +24,7 @@ export default class extends Base {
                 <div class="layui-form-item">
                     <label class="layui-form-label">影院</label>
                     <div class="layui-input-block" style="width: 200px;">
-                        <input type="text" name="cinemasId" required lay-verify="required" placeholder="请输入姓名" autocomplete="off"
-                            class="layui-input">
+                    <select name="cinemasId" required lay-verify="required" placeholder="请选择影院" autocomplete="off"></select>
                     </div>
                 </div>
                 
@@ -60,13 +59,14 @@ export default class extends Base {
         
     }
     afterMount() {
-        // const that = this;
-        // (async function () {
-        //     // const data = await getClazzs();method="POST"
-        //     // const template = data.rows.map(cl=>`<option value="${cl._id}">${cl.name}</option>`).join();
-        //     // $("select[name='className']").html(template);
-        //     layui.form.render();
-        // }());
+        const that = this;
+        (async function () {
+            const data = await getStudents();  //获取数据库排片数据
+            console.log(data,"www");
+            const template = data.rows.map(cl=>`<option value="${cl._id}">${cl.cinemasId.name}</option>`).join();  //数据库通过id获取的相应影院值
+            $("select[name='cinemasId']").html(template); //渲染在下拉列表
+            layui.form.render(); //页面渲染
+        }());
         this.uploadInst = layui.upload.render({
             // elem: '#upload-pic-update' //绑定元素
              url: '/schedules/upload/' //上传接口

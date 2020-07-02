@@ -18,9 +18,9 @@ window.onstorage = function ({ key, newValue }) {
 export async function getStudents(userTxt) {
     const { data } = await axiosIns.get(
         "/api/schedules/",
-        {
-            params: { limit: pager.limit, page: pager.page }
-        }
+        // {
+        //     params: { limit: pager.limit, page: pager.page }
+        // }
     )
     return data;
 }
@@ -81,12 +81,13 @@ export function upload(url, keyName, file) {
 //     return data;
 // }
 
-export async function searchStudents(condition) {
+export async function searchStudents(condition) {  //搜索
+    console.log(condition);
+    
     const {data} = await axiosIns.post(
         "/api/schedules/searchStudents",
         condition
     )
-    console.log(data);
     
     return data;
 }

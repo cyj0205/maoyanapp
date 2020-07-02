@@ -111,7 +111,6 @@ var routes = {
         },
         "/updateCinemas": () => {
             pages.UpdateCinemas = new UpdateCinemas("#test");
-
         },
 
         // "/addSchedules": () => {
