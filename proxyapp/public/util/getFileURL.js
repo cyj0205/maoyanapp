@@ -1,4 +1,4 @@
-export function  getFileURL(file) {//该方法用来获取文件在浏览器中的缓存地址，实现本地显示
+export default function  getFileURL(file) {//该方法用来获取文件在浏览器中的缓存地址，实现本地显示
     var getUrl = null;
     if (window.createObjectURL != undefined) { // basic
         getUrl = window.createObjectURL(file);
