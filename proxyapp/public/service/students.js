@@ -1,7 +1,7 @@
 let axiosIns;
 function useToken() {
-   axiosIns = axios.create({
-        baseURL: 'http://'+location.host,
+    axiosIns = axios.create({
+        baseURL: 'http://' + location.host,
         timeout: 1000,
         headers: { "Authorization": `Bearer ${localStorage.user_token}` }
     });
@@ -12,34 +12,6 @@ window.onstorage = function ({ key, newValue }) {
         useToken();
     }
 }
-
-import pager from "../util/pager.js";
-export async function getMovies() {
-    const {data} = await axiosIns.get(
-        "/api/movies/",
-        {
-            params: { limit: pager.limit, page: pager.page }
-        }
-    )
-    return data;
-}
-// import pager from "../util/pager.js";
-// export async function getMovies() {
-//     const {data} = await axiosIns.get(
-//         "/api/movies/")
-//     return data;
-// }
-export async function deleteMovies({_id}) {
-    const {data} = await axiosIns.delete("/api/movies/" + _id)
-    return data;
-}
-export async function addMovies(stuTxt) {
-    const {data} = await axiosIns.post(
-        "/api/movies/",stuTxt
-    )
-    return data;
-}
-
 // import pager from "../util/pager.js";
 
 //渲染
@@ -65,17 +37,8 @@ export async function delStudents({ _id }) {
 export async function updateStudents(stuTxt, _id) {
     const { data } = await axiosIns.put(
         "/api/schedules/" + _id,
-
         stuTxt
-    )
-    return data;
-}
-
-export async function updateMovies(_id,stuTxt) {
-    const {data} = await axiosIns.put(
-        "/api/movies/" + _id,
-        stuTxt
-    )
+    );
     return data;
 }
 
@@ -88,7 +51,8 @@ export async function addStudents(studentsTxt) {
     )
     return data;
 }
-export function upload( {keyName, file}) {
+
+export function upload(url, keyName, file) {
     //url:上传的服务器接口。
     //keyName：上传的文件的key。
     //file：上传的文件（由input[type='file']获取）
@@ -96,7 +60,7 @@ export function upload( {keyName, file}) {
         const fd = new FormData();
         fd.append(keyName, file);//键的名字必须与服务器对应
         $.ajax({
-            url:"/movies/upload",
+            url:"/students/upload",
             type: "post",//*** 
             data: fd,//*** 
             cache: false,//上传文件无需缓存
@@ -109,16 +73,6 @@ export function upload( {keyName, file}) {
     })
 }
 
-export async function deletePic(file) {
-    const {data} = await axiosIns.post(
-        "/movies/deletePic",
-        {file}
-    )
-    return data;
-}
-
-
-
 // export async function deletePic(file) {
 //     const { data } = await axiosIns.post(
 //         "/students/deletePic",
@@ -129,9 +83,11 @@ export async function deletePic(file) {
 
 export async function searchStudents(condition) {  //搜索
     console.log(condition);
+    
     const {data} = await axiosIns.post(
         "/api/schedules/searchStudents",
         condition
     )
+    
     return data;
 }

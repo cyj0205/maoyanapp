@@ -34,7 +34,7 @@ router.put('/:_id', async function(req, res, next) {
 });
 router.post('/', async function(req, res, next) {
   const {cname,area,ename,type,poster,time,update,score,count,intro,isClassic,director,actor,images} = req.body;
-  // console.log(cname,area,ename,type,poster,time,update,score,count,intro,isClassic,director,actor,images,"add");
+  console.log(cname,area,ename,type,poster,time,update,score,count,intro,isClassic,director,actor,images,"add");
   
   const data = await moviesService.addMovies({cname,area,ename,type,poster,time,update,score,count,intro,isClassic,director,actor,images});
   res.send(data);

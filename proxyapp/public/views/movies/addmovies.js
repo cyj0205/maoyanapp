@@ -200,7 +200,6 @@ export default class extends Base {
                     });
                     movie.images = images;//上传完成后把图片在服务器的位置得到
                 }
-               
                 const { isAdd } = await addMovies(data.field);
                 if (isAdd) {
                     layui.layer.msg("添加成功！");

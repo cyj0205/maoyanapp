@@ -1,19 +1,11 @@
 //连接数据库
 const mongoose = require('mongoose');
-<<<<<<< HEAD
-require('./models/cinemasModel')
-require('./models/schedulesModel')
 
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
 require('./models/cinemasModel')
 require('./models/schedulesModel')
->>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
->>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757
->>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
+require('./models/moviesModel')
+// require('./models/cinemasModel')
+// require('./models/schedulesModel')
 const dbname = "maoyan";
 mongoose.connect(
   'mongodb://localhost/' + dbname,

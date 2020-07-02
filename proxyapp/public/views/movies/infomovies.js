@@ -84,11 +84,12 @@ export default class extends Base {
           }
         }
         
-        , { fixed: 'right', title: '操作', toolbar: '#moviesbarCol', width: 150 }
+        , { fixed: 'right', title: '操作', toolbar: '#barCol', width: 150 }
 
       ]]
       , page: true
     });
+    
   }
   handler() {
     const that = this;
