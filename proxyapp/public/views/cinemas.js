@@ -39,7 +39,7 @@ export default class extends Base {
     afterMount() {
         // this.renderStuList();
         // console.log("render");
-        
+
         const that = this;
         this.tableIns = layui.table.render({
             elem: '#cinemas-list'
@@ -68,25 +68,39 @@ export default class extends Base {
             , cols: [[
                 { field: '_id', title: 'ID', width: 60, fixed: 'left', unresize: true, sort: true }
                 , { field: 'name', title: '影院名', width: 180 }
-                , { field: 'status', title: '是否营业', width: 110, sort: true }
+                , {
+                    field: 'status', title: '是否营业', width: 110, sort: true, templet: function (d) {
+                        if (d.status) {
+                            return `<p>营业中</p>`
+                        } else  {
+                            return `<p>未营业</p>`
+                        }
+                    }
+                }
                 , { field: 'phone', title: '影院电话', width: 120 }
                 , { field: 'address', title: '影院地址', width: 180, sort: true }
                 , { fixed: 'right', title: '操作', toolbar: '#barCol', width: 120 }
             ]]
             , page: true
-            
+
         });
         layui.form.render();
     }
     handler() {
-       
+
         const that = this;
         layui.table.on('tool(cinemas-list)', function (obj) {
             const data = obj.data;
             if (obj.event === 'del') {
-                layer.confirm('真的要删除吗？',async function (index) {
+                layer.confirm('真的要删除吗？', async function (index) {
                     const _id = data._id;
-                    if (data.status==="营业中") {
+                    // const { isDelete } = await delCinemas({ _id });
+                    
+                    // if (isDelete) {
+                    //     layer.alert("删除成功！");
+                    //     obj.del();
+                    // }
+                    if (data.status===true) {
                         layer.alert("正在营业中，不能删除！");
                     } else {
                         const { isDelete } = await delCinemas({ _id });
@@ -96,24 +110,29 @@ export default class extends Base {
                         } 
                     }
                 });
-            } 
+            }
             else if (obj.event === 'edit') {//编辑按钮
                 location.hash = "/admins/updateCinemas";//取对应事件的回掉直接调用，非异步
                 setTimeout(() => {
+                    if(data.status===true){
+                        $("#statusTrue").attr("checked",true)
+                    }else if(data.status===false){
+                        $("#statusFalse").attr("checked",true)
+                    }
                     layui.form.val('updateCinemas-form', data);
                 });
             }
         });
-        $("#search-cinemas").on("click",async  function(obj){
-        // layui.table.on('toolbar(cinemas-list)',async  function(obj){
-            const {search,searchValue} = layui.form.val("search-form");
+        $("#search-cinemas").on("click", async function (obj) {
+            // layui.table.on('toolbar(cinemas-list)',async  function(obj){
+            const { search, searchValue } = layui.form.val("search-form");
             // console.log(search,searchValue,'xiejie')
             that.tableIns.reload({
-              page:1,
-              limit:searchValue?10000000:5,
-              where:{
-                condition:{[search]:searchValue}
-              }
+                page: 1,
+                limit: searchValue ? 10000000 : 5,
+                where: {
+                    condition: { [search]: searchValue }
+                }
             });
         });
     }
@@ -121,4 +140,4 @@ export default class extends Base {
         this.tableIns.reload();
     }
 
-    }
+}

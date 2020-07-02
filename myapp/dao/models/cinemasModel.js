@@ -5,8 +5,8 @@ const cinemasSchema = mongoose.Schema({
     name: String, //影院名称
     address: String, //影院地址
     phone: String, //影院联系方式
-    // status: Boolean //影院是否营业
-    status: String //影院是否营业
+    status: Boolean //影院是否营业
+    // status: String //影院是否营业
 }, { versionKey: false });
 // const cinemasModel = mongoose.model('cinemas', cinemasSchema);
 
