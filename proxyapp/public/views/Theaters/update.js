@@ -72,7 +72,7 @@ export default class extends Base {
                 const { isUpdate } = await updatetheater(movies._id, movies);
                 console.log(isUpdate); 
                 if (isUpdate) {
-                    layui.layer.msg("修改成功！");
+                    layui.layer.msg("修改成功！！！！！");
                     location.hash = "/admins/theaters";
                 }
             })();

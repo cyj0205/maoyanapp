@@ -136,20 +136,6 @@ export default class extends Base {
           condition:{[search]:searchValue}
         }
       });
-      
-    //   var checkStatus = table.checkStatus(obj.config.id);
-    //   switch(obj.event){
-    //     case 'add':
-    //       layer.msg('添加');
-    //     break;
-    //     case 'delete':
-    //       layer.msg('删除');
-    //     break;
-    //     case 'update':
-    //       layer.msg('编辑');
-    //     break;
-    //   };
-    // });
     })
   }
   reloadList() {
