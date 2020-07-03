@@ -51,8 +51,8 @@ export default class extends Base {
                     <div class="layui-form-item" pane>
                         <label class="layui-form-label">是否营业</label>
                         <div class="layui-input-block">
-                        <input type="radio" name="status" value="营业中" title="营业中" checked>
-                        <input type="radio" name="status" value="未营业" title="未营业">
+                        <input type="radio" name="status" id="statusTrue" value="true" title="营业中" checked>
+                        <input type="radio" name="status" id="statusFalse" value="false" title="未营业">
                         </div>
                     </div>
 
@@ -90,7 +90,7 @@ export default class extends Base {
             
             (async function (){
                 const cinemas = data.field;//获取更新表单中得学生数据
-                // console.log(cinemas);
+                console.log(cinemas,"cin");
                 
                 const { isUpdate } = await updateCinemas(cinemas._id,cinemas);
                 // console.log(isUpdate);

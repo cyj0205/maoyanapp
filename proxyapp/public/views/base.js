@@ -1,4 +1,3 @@
-
 export default class {
     constructor(elSelector) {
         this.$el = $(elSelector);

@@ -43,8 +43,8 @@ export default class extends Base {
                             <div class="layui-form-item" pane>
                                 <label class="layui-form-label">是否营业</label>
                                 <div class="layui-input-block">
-                                <input type="radio" name="status" value="营业中" title="营业中" checked>
-                                <input type="radio" name="status" value="未营业" title="未营业">
+                                <input type="radio" name="status" value="true" title="营业中">
+                                <input type="radio" name="status" value="false" title="未营业">
                                 </div>
                             </div>
 
