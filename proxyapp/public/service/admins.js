@@ -12,12 +12,12 @@ window.onstorage = function ({ key, newValue }) {
         useToken();
     }
 }
-import pager from "../util/pager.js";
+// import pager from "../util/pager.js";66
 
 //渲染
-export async function getStudents(userTxt) {
+export async function getadmin(userTxt) {
     const { data } = await axiosIns.get(
-        "/api/students/",
+        "/api/admins/",
         {
             params: { limit: pager.limit, page: pager.page }
         }
@@ -27,16 +27,16 @@ export async function getStudents(userTxt) {
 
 
 //删除
-export async function delStudents({ _id }) {
-    const { data } = await axiosIns.delete("/api/students/" + _id)
+export async function delAdmin({ _id }) {
+    const { data } = await axiosIns.delete("/api/admins/" + _id)
     return data;
 }
 
 
 //修改
-export async function updateStudents(stuTxt, _id) {
+export async function updateAdmin(stuTxt, _id) {
     const { data } = await axiosIns.put(
-        "/api/students/" + _id,
+        "/api/admins/" + _id,
         stuTxt
     );
     return data;
@@ -44,10 +44,10 @@ export async function updateStudents(stuTxt, _id) {
 
 
 //添加
-export async function addStudents(studentsTxt) {
+export async function addAdmin(AdminsTxt) {
     const { data } = await axiosIns.post(
-        "/api/students/",
-        studentsTxt
+        "/api/admins/",
+        AdminsTxt
     )
     return data;
 }
@@ -60,7 +60,7 @@ export function upload(url, keyName, file) {
         const fd = new FormData();
         fd.append(keyName, file);//键的名字必须与服务器对应
         $.ajax({
-            url:"/students/upload",
+            url:"/admins/upload",
             type: "post",//*** 
             data: fd,//*** 
             cache: false,//上传文件无需缓存
@@ -75,15 +75,15 @@ export function upload(url, keyName, file) {
 
 export async function deletePic(file) {
     const { data } = await axiosIns.post(
-        "/students/deletePic",
+        "/admins/deletePic",
         {file}
         )
     return data;
 }
 
-export async function searchStudents(condition) {
+export async function searchAdmins(condition) {
     const {data} = await axiosIns.post(
-        "/api/students/searchStudents",
+        "/api/admins/searchAdmins",
         condition
     )
     return data;

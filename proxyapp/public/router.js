@@ -1,10 +1,12 @@
 import Login from "./views/login.js";
 import Reg from "./views/reg.js";
-import Info from "./views/students/info.js";
-import Update from "./views/students/update.js";
-import Add from "./views/students/add.js";
+import Infoadmins from "./views/admins/infoadmins.js";
+import Updateadmins from "./views/admins/updateadmins.js";
+import Addadmins from "./views/admins/addadmins.js";
 import Main from "./views/main.js";
-
+import Infousers from "./views/users/infousers.js";
+import Updateusers from "./views/users/updateusers.js";
+import Addusers from "./views/users/addusers.js";
 const pages = {}//用来实时的保存挂载的页面有哪些 
 var routes = {
     '/login': () => {
@@ -13,51 +15,63 @@ var routes = {
     '/reg': () => {
         pages.Reg = new Reg("#root");
     },
-    '/students': {
+    '/admins': {
         on() {
-            if ($("#students-main").length === 0) {
+            if ($("#admins-main").length === 0) {
                 pages.Main = new Main("#root");
             }
         },
-        "/info": () => {
-            const $wrap = $("#info");
+        "/infoadmins": () => {
+            // console.log('jinlaile!!!!!')
+            // console.log($('#infoadmins'),'aaabbbccc')
+            const $wrap = $("#infoadmins");
             if ($wrap.length === 1) {//首先包裹层（也就是挂载点）必须存在
+                // console.log(123321123321)
                 if ($wrap.find("*").length === 0) {//其次包裹层（也就是挂载点）内部没有元素
-                    pages.Info = new Info("#info");
+                    pages.Infoadmins = new Infoadmins("#infoadmins");
                 } else {//如果包裹层（也就是挂载点）内部已经存在元素，不需要重新挂载，直接刷新列表即可
-                    pages.Info.reloadList();
+                    // console.log('aaabbbcccddd')
+                    // pages.Infoadmins.reloadList();
+                    pages.Infoadmins = new Infoadmins("#infoadmins");
                 }
             } else {//包裹层（也就是挂载点）不存在，模拟点击事件（点击事件中有创建包裹层（也就是挂载点）的代码）
-                $("a[data-id='info']")[0].click();
-                pages.Info = new Info("#info");
+                $("a[data-id='infoadmins']")[0].click();
+                pages.Infoadmins = new Infoadmins("#infoadmins");
             }
-            layui.element.tabChange('content', "info");
+            layui.element.tabChange('content', "infoadmins");
         },
-        "/add": () => {
-            const $wrap = $("#add");
-            if ($wrap.length === 1) {
-                if ($wrap.find("*").length === 0) {
-                    pages.Add = new Add("#add");
+        "/infousers": () => {
+            // console.log('jinlaile!!!!!')
+            // console.log($('#infoadmins'),'aaabbbccc')
+            const $wrap = $("#infousers");
+            if ($wrap.length === 1) {//首先包裹层（也就是挂载点）必须存在
+                // console.log(123321123321)
+                if ($wrap.find("*").length === 0) {//其次包裹层（也就是挂载点）内部没有元素
+                    pages.Infousers = new Infousers("#infousers");
+                } else {//如果包裹层（也就是挂载点）内部已经存在元素，不需要重新挂载，直接刷新列表即可
+                    // console.log('aaabbbcccddd')
+                    pages.Infousers.reloadList();
+                    // pages.Infousers = new Infousers("#infousers");
                 }
-            } else {
-                $("a[data-id='add']")[0].click();
-                pages.Add = new Add("#add");
+            } else {//包裹层（也就是挂载点）不存在，模拟点击事件（点击事件中有创建包裹层（也就是挂载点）的代码）
+                $("a[data-id='infousers']")[0].click();
+                pages.Infousers = new Infousers("#infousers");
             }
-            layui.element.tabChange('content', "add");
+            layui.element.tabChange('content', "infousers");
         },
-        "/update": () => {
-            const $wrap = $("#update");
-            if ($wrap.length === 1) {
-                if ($wrap.find("*").length === 0) {
-                    pages.Update = new Update("#update");
-                }
-            } else {
-                $("a[data-id='update']")[0].click();
-                pages.Update = new Update("#update");
-            }
-            layui.element.tabChange('content', "update");
+        "/addAdmins": () => {
+            pages.Add = new Addadmins("#test");
         },
-    }
+        "/updateAdmins": () => {
+            pages.Update = new Updateadmins("#test");
+        },
+        "/addUsers": () => {
+            pages.Add = new Addusers("#test");
+        },
+        "/updateUsers": () => {
+            pages.Update = new Updateusers("#test");
+        },
+    },
 };
 
 var router = Router(routes).configure({ recurse: 'forward' });
@@ -66,7 +80,7 @@ export default {
     init() {
         layui.use(['form', 'layer', "element", "table", "carousel", "upload"], function () {
             router.init();
-            location.hash = "/login";
+            location.hash = "/admins";
             // location.hash = "/students";
         })
     }
