@@ -1,4 +1,4 @@
-//. ./util/baseInfo.js
+
 const path = require("path");
 const os = require("os")
 // os.type()
