@@ -33,7 +33,15 @@ export default class extends Base {
   </div>
 </form>
 </div>
+<div style="margin-left:20px;margin-top:50px" id="seatsAll" >
+<div style="margin-bottom:20px; display:none" id="seatsHint">
+<h3 style="display:inline-block">点击座位可以更改状态:</h3>
+<img src="../../images/seatsImages/seat16B.png" style="margin-left:20px;margin-right:5px"><span>正常</span>
+<img src="../../images/seatsImages/seat16G.png"  style="margin-left:10px;margin-right:5px"><span>维修中</span>
+</div>
 <table id="seats-list" style="margin-left:50px;margin-top:50px"></table>
+</div>
+
 
                   `;
     this.$el.html(template);
@@ -76,6 +84,9 @@ export default class extends Base {
 
     // 提交按钮监听===================================================
     layui.form.on('submit(seatsInquire)', function (data) {
+      $("#seatsHint").css({
+        "display":"block"
+      })
       theatersSeatsId = `ObjectId("${theatersSeatsId}")`;
       let arr = [];
       (async function () {
@@ -105,7 +116,7 @@ export default class extends Base {
           }
           str += `</tr>`;
         }
-        document.querySelector("#seats-list").innerHTML = `${str}`;
+        $("#seats-list").html(`${str}`) ;
         $("#seatsInquire").attr("disabled", true);
       })();
       return false;
@@ -144,6 +155,7 @@ export default class extends Base {
 
     //编辑按钮监听>>>>=====================================================
     layui.form.on('submit(seatsChange)', function (data) {
+      $("#seatsAll").html("");
       layer.open({
         type: 1,
         anim: 5,

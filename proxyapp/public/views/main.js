@@ -5,21 +5,7 @@ export default class extends Base {
             `
             <div class="layui-layout layui-layout-admin" id= "students-main" >
             <div class="layui-header">
-<<<<<<< HEAD
-
                 <div class="layui-logo">猫眼电影后台管理系统</div>
-
-=======
-<<<<<<< HEAD
-                <div class="layui-logo">猫眼后台管理系统</div>
-=======
-<<<<<<< HEAD
-                <div class="layui-logo">猫眼电影</div>
-=======
-                <div class="layui-logo">猫眼电影后台管理系统</div>
->>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757
->>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
->>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
                 <!-- 头部区域（可配合layui已有的水平导航） -->
                 <ul class="layui-nav layui-layout-right">
                     <li class="layui-nav-item">
@@ -43,92 +29,39 @@ export default class extends Base {
                         <li class="layui-nav-item layui-nav-itemed">
                             <a class="" href="javascript:;">后台管理</a>
                             <dl class="layui-nav-child">
-<<<<<<< HEAD
+
                                 <dd><a data-name="电影管理" data-id="infomovies" href="javascript:;"><i
                                         class="layui-icon layui-icon-table"
-                                        style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>影片信息
-                                    </a>
-=======
-<<<<<<< HEAD
-
+                                        style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>影片信息</a>
+                                </dd>
                                 <dd><a data-name="放映厅" data-id="theaters" href="javascript:;"><i
                                             class="layui-icon layui-icon-edit"
                                             style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>放映厅</a></dd>
-=======
-                                <dd><a data-name="影片信息" data-id="infomovies" href="javascript:;"><i
-                                            class="layui-icon layui-icon-table"
-                                            style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>影片信息</a></dd>
-                               
-                                        
-=======
-                            <a class="" href="javascript:;">功能选择</a>
-                            <dl class="layui-nav-child">
-<<<<<<< HEAD
-                            
                                 <dd><a data-name="座位查询" data-id="inquireSeats" href="javascript:;"><i
                                             class="layui-icon layui-icon-addition"
-                                            style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>座位查询</a></dd>
-                                                        </dl>
-=======
+                                            style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>座位查询</a>
+                                </dd>
                                 <dd><a data-name="排片管理" data-id="schedules" href="javascript:;"><i
                                             class="layui-icon layui-icon-edit"
                                             style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>排片管理</a>
->>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
                                 </dd>
-
                                 <dd><a data-name="影院管理" data-id="cinemas" href="javascript:;">
                                         <i class="layui-icon layui-icon-edit"  style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>影院管理
                                     </a>
                                 </dd>
-
-                                    
-                                                        
-                                <dd><a data-name="排片管理" data-id="schedules" href="javascript:;"><i
-                                        class="layui-icon layui-icon-edit"
-                                        style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>排片管理
-                                    </a>
-                                </dd>
-                                    
-                                <dd><a data-name="座位查询" data-id="inquireSeats" href="javascript:;"><i
-                                        class="layui-icon layui-icon-addition"
-                                        style="margin-right: 5px;font-size: 16px; color: #1E9FFF;"></i>座位查询
-                                    </a>
-                                </dd>  
-                                
-
-
-<<<<<<< HEAD
-=======
->>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757
->>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
->>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
                             </dl>
                         </li>
                     </ul>
                 </div>
             </div>
     
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-            <div class="layui-body" style="left: 120px;" id="test">
-=======
-<<<<<<< HEAD
->>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
-            <div class="layui-body" style="left: 120px;" id="test" >
 
 
             <div class="layui-body" style="left: 120px;" id="test">
 
-            <div class="layui-body" style="left: 120px;" id="test" >
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757
->>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
->>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
                 <!-- 内容主体区域 -->
                 <div class="layui-tab" lay-allowClose="true" style="margin-top: 0px;" lay-filter="content" >
                     <ul class="layui-tab-title">
@@ -172,8 +105,6 @@ export default class extends Base {
             // location.hash = "#/admins/"+`${id}`;
 
             location.hash = "#/admins/" + id;
-=======
-<<<<<<< HEAD
             location.hash = "#/admins/" + id;
 
         });
@@ -187,32 +118,20 @@ export default class extends Base {
         })
         //暴力美学
         layui.element.on('tabdelete(content)', function (data) {
-<<<<<<< HEAD
 
-=======
-=======
-<<<<<<< HEAD
             location.hash = "#/admins/"+`${id}`;
-=======
             location.hash = "#/admins/"+id;
->>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
             
->>>>>>> 3d9c2cb2bf53c440b14f535e099e05d49c78163b
         });
         layui.element.on('tab(content)',function(data){
-<<<<<<< HEAD
             location.hash = "/admins" + $(this).attr("lay-id");
         })
         //暴力美学
         layui.element.on('tabdelete(content)',function(data){
-=======
             location.hash = "/admins"+$(this).attr("lay-id");
         })
         //暴力美学
         layui.element.on('tabdelete(content)',function(data){
->>>>>>> 40b14582022bfa0bfbe300fd1a47676f90df4757
->>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
->>>>>>> 57a6baf23a07d4691d65f10435f87658596df05a
             location.hash = "/admins";
         })
     }

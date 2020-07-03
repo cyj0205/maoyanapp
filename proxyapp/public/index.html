@@ -17,21 +17,14 @@
             height: 100%;
             padding: 0;
             margin: 0;
-
             position: relative;
-
-          
-
-            /* display: flex;
-            justify-content:space-around; */
-
         }
 
         #root {
             display: flex;
             justify-content: center;
             align-items: center;
-            
+
 
         }
     </style>
@@ -42,35 +35,33 @@
     <div id="root"></div>
 
     <!-- <script type="text/html" id="Search"> -->
-        
-      <!-- </script> -->
+
+    <!-- </script> -->
     <script type="text/html" id="moviesbarCol">
-
-    <!-- <div type="text/html" id="toolbarSearch" >
-        <div class="layui-form" lay-filter="search-form" style="display:flex;"> -->
-
+    <div type="text/html" id="" >
+        <div class="layui-form" lay-filter="search-form" style="display:flex;">
             <div class="demoTable">
-<<<<<<< HEAD
                 <div class="layui-inline" style="width:100px">
                     <select name="search">
                         <option value=name>放映厅</option>
                         <option value=cinemasId>影院</option>
-=======
-                <div class="layui-inline" style="width:70px;margin-left: 50px;">
+                    </select>   
+                </div>     
+                <!-- <div class="layui-inline" style="width:70px;margin-left: 50px;">
                     <select name="search">
                         <option value="movieId">影名</option>
                         <option value="cinemasId">影院</option>
->>>>>>> 59d6d57fab16c3402d4cdb99906c94eb0307d6dd
                       </select> 
-                  </div>
+                  </div> -->
                 <div class="layui-inline">
                   <input class="layui-input" name="searchValue" id="search-value" lay-filter="search-value" autocomplete="off">
                 </div>
-                <button class="layui-btn"  lay-event="search">搜索</button>
+                 <button class="layui-btn"  lay-event="search">搜索</button>
                 <button class="layui-btn"  id="aftermonttheater" lay-event="search">返回放映厅</button>
-              </div>
-        <!-- </div>
-      </div> -->
+               
+            </div>
+        </div>
+      </div>
     </script>
     <script type="text/html" id="barCol">
         <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>

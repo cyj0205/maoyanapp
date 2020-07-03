@@ -12,9 +12,6 @@ const schedulesSchema = mongoose.Schema({
   showTime: String, // 
   price: Number, // 
 }, { versionKey: false });
-
 mongoose.model('schedulesModel', schedulesSchema,'schedules');
 //"users"必须与数据库集合名称一致
-
-
 module.exports =  mongoose.model('schedulesModel');

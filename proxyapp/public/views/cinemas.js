@@ -87,7 +87,7 @@ export default class extends Base {
                 layer.confirm('真的要删除吗？',async function (index) {
                     const _id = data._id;
                     if (data.status==="营业中") {
-                        layer.alert("正在营业中，不能删除！");
+                        layer.alert("正在营业中，不能删除！！！！！！");
                     } else {
                         const { isDelete } = await delCinemas({ _id });
                         if (isDelete) {

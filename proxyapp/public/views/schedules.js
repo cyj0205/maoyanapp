@@ -232,10 +232,7 @@ export default class extends Base {
         });
 
         layer.ready(function () {
-          console.log("diyici");
-          
           (async function () {
-         
             const data = await getStudents();  //获取数据库排片数据
             const template = data.rows.map(cl => `<option value="${cl.cinemasId._id}">${cl.cinemasId.name}</option>`).join('');
             //数据库通过id获取的相应影院值

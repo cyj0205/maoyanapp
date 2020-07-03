@@ -33,7 +33,7 @@ export default class extends Base {
           "data": res.rows //解析数据列表
         };
       }
-      ,toolbar:"#toolbarSearch"
+      ,toolbar:"#moviesbarCol"
       , defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
         title: '提示'
         , layEvent: 'LAYTABLE_TIPS'
@@ -53,13 +53,10 @@ export default class extends Base {
           return `<p>未营业</p>`
          }
         }}
-
         , { field: 'cinemasId', title: '所属电影院', width: 220 
         ,templet:function(d){
           let {name} =d.cinemasId
-          // console.log("联系影院",d);
           return name;
-          
         }
       }
         , { fixed: 'right', title: '操作', toolbar: '#barCol', width: 150 }
@@ -74,13 +71,8 @@ export default class extends Base {
       if (obj.event === 'del') {
         layer.confirm('是否删除此放映厅', async function (index) {
           const _id = data._id;
-          console.log("电影院正在",data.cinemasId.status);
-          console.log(_id);
-         if(data.cinemasId.status==="未营业"){
-           console.log("可以删除未营业的");
-           
+         if(data.status===false){
            const { isDelete } = await deleteTheaters({ _id });
-           console.log(isDelete,222);
            if (isDelete) {
              layer.alert("删除成功！");
              obj.del();
@@ -89,7 +81,7 @@ export default class extends Base {
            }   
          }
          else{
-          layer.alert("影院营业中，无法删除");
+          layer.alert("放映厅营业中，无法删除");
         }   
         });
       } 
@@ -97,25 +89,14 @@ export default class extends Base {
       else if (obj.event === 'edit') {
         location.hash = "/admins/updatetheaters";//取对应事件的回掉直接调用，非异步。
      setTimeout(() => {
-       console.log(data,"开始");
-       
        data.cinemasId =data.cinemasId.name;
-       
-       
-       console.log(data.cinemasId,"所属影院");
-       console.log(data,"修改影院数据");
-       
        if(data.status ==true){
        $("#statusTrue").attr("checked",true)
        }else if (data.status ==false) {
         $("#statusFalse").attr("checked",true)
        }
        layui.form.val('update-form', data);
-       console.log( layui.form.val('update-form', data),"验证传输内容");
-       console.log(data,"再次验证");
-       
       //  layui.form.val('update-form',data.cinemasId.name);
-       
      });
       }
     });
@@ -123,12 +104,7 @@ export default class extends Base {
     that.afterMount();
   })
     layui.table.on('toolbar(theaters-list)',async  function(obj){
-
-      
-      console.log(obj);
       const {search,searchValue} = layui.form.val("search-form");
-      console.log("搜索的内容",search,searchValue);
-      
       that.tableIns.reload({
         page:1,
         limit:searchValue?10000000:5,
