@@ -9,18 +9,15 @@ router.get('/', async function (req, res, next) {
     let { page, limit, condition } = req.query;
     page = ~~page;
     limit = ~~limit;
-    // console.log(await theatersServer.gettheaters({page,limit,condition}));
     if (typeof condition === "string") {
         condition = JSON.parse(condition);
     }
-    // console.log(condition, "查询");
     res.send(await theatersServer.gettheaters({ page, limit, condition }));
     
 });
 
 //获取影院
 router.get('/', async function (req, res, next) {
-    
     const data = await theatersServer.getcinemas();
     res.send(data);
 });

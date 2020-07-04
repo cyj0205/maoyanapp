@@ -8,7 +8,6 @@ router.get('/', async function (req, res, next) {
   page = ~~page;
   if (typeof condition === "string") {
     condition = JSON.parse(condition);
-    console.log(condition, "222");
   }
   const data = await schedulesService.renderschedules({ page, limit, condition });
   res.send(data);
@@ -32,8 +31,6 @@ router.delete("/:_id", async function (req, res, next) {
 //新增
 router.post('/', async function (req, res, next) {
   const { movieId, cinemasId, theaterId, showTime, price } = req.body;  //
-  // console.log(movieId, cinemasId, theaterId, showTime, price);
-
   const data = await schedulesService.addschedules({ movieId, cinemasId, theaterId, showTime, price });
   res.send(data);
 });

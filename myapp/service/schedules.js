@@ -17,9 +17,6 @@ service.searchschedules = async ({ cinemasId, theatersId }) => {
     return { data };
 }
 
-
-
-
 //删除
 service.deleteschedules = async ({ _id }) => {
     const { deletedCount } = await schedulesDao.deleteschedules({ _id });
@@ -29,9 +26,7 @@ service.deleteschedules = async ({ _id }) => {
 
 //新增
 service.addschedules = async ({ movieId, cinemasId, theaterId, showTime, price }) => {
-    // console.log(movieId,cinemasId,showTime);
     const data = await schedulesDao.createschedules({ movieId, cinemasId, theaterId, showTime, price });
-
     let isAdd = data ? true : false;
     return { isAdd };
 }

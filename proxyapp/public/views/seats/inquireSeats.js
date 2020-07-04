@@ -1,10 +1,12 @@
 import Base from "../base.js"
 import { getSeats, updateSeats, getCinemas, getTheaters, getBadSeats, deleteBadSeats, addBadSeats } from "../../service/seats.js";
+let rowFirst,colFirst,theatersSeatsId;
 export default class extends Base {
+  
   render() {
     const template =
       `
-      <div style="display:flex;  justify-content: center;">
+       <div style="display:flex;  justify-content: center;">
             <form class="layui-form layui-form-pane">
             <div class="layui-form-item">
             <label class="layui-form-label layui-bg-red">影院</label>
@@ -23,13 +25,9 @@ export default class extends Base {
         </div>
   <div class="layui-form-item">
     <div class="layui-input-block">
-      <button class="layui-btn layui-bg-red" lay-submit lay-filter="seatsInquire" id="seatsInquire">立即查询</button>
+      <button class="layui-btn layui-btn-radius layui-btn-danger" lay-submit lay-filter="seatsInquire" id="seatsInquire">立即查询</button>
+      <button class="layui-btn layui-btn-radius layui-btn-danger" lay-submit lay-filter="seatsChange" id="seatsChange">编辑座位</button> 
     </div>
-  </div>
-  <div class="layui-form-item">
-  <div class="layui-input-block">
-  <button class="layui-btn layui-bg-red" lay-submit lay-filter="seatsChange" id="seatsChange">编辑座位</button>      
-  </div>
   </div>
 </form>
 </div>
@@ -42,30 +40,29 @@ export default class extends Base {
 <table id="seats-list" style="margin-left:50px;margin-top:50px"></table>
 </div>
 
-
                   `;
     this.$el.html(template);
+
   }
+  
   afterMount() {
     (async function () {
       const dataCinemas = await getCinemas();
-      let str = `<option value="">请选择</option>`;
+      let str = `<option  id="selCinema">请选择</option>`;
       for (let i = 0; i < dataCinemas.length; i++) {
         str += ` <option value="${dataCinemas[i]._id}" data-cinemasId="${dataCinemas[i]._id}">${dataCinemas[i].name}</option>`
       }
       $("#cinemasSelect").html(`${str}`);
       layui.form.render();
-    })();
-    layui.form.render();
+    })()
   }
   handler() {
-    let theatersSeatsId;
+    
     //第一个下拉栏监听==================================================================================
     layui.form.on('select(cinemasSelect)', function (data) {
       let id = data.value;
-      // console.log(id);
       (async function () {
-        let str = `<option value="">请选择</option>`;
+        let str = `<option  id="selTheater">请选择</option>`;
         const dataTheaters = await getTheaters(id);
         for (let i = 0; i < dataTheaters.length; i++) {
           str += ` <option value="${dataTheaters[i]._id}" data-cinemasId="${dataTheaters[i]._id}">${dataTheaters[i].name}</option>`
@@ -79,6 +76,19 @@ export default class extends Base {
     layui.form.on('select(theatersSeats)', function (data) {
       $("#seatsInquire").attr("disabled", false);
       theatersSeatsId = data.value;
+
+      (async function () {
+        theatersSeatsId = `ObjectId("${theatersSeatsId}")`;
+        const data = await getSeats(theatersSeatsId);
+        rowFirst = `${data[0].row}`;
+        colFirst = `${data[0].col}`;
+        // console.log(rowFirst);
+        
+        $("#rowSeats").val(`${data[0].row}`)
+        $("#colSeats").val(`${data[0].col}`)
+        layui.form.render();
+      })();
+
       return false;
     });
 
@@ -87,7 +97,11 @@ export default class extends Base {
       $("#seatsHint").css({
         "display":"block"
       })
-      theatersSeatsId = `ObjectId("${theatersSeatsId}")`;
+      $("#seatsHint").html(`<h3 style="display:inline-block">点击座位可以更改状态:</h3>
+      <img src="../../images/seatsImages/seat16B.png" style="margin-left:20px;margin-right:5px"><span>正常</span>
+      <img src="../../images/seatsImages/seat16G.png"  style="margin-left:10px;margin-right:5px"><span>维修中</span>`
+      )
+      // theatersSeatsId = `ObjectId("${theatersSeatsId}")`;
       let arr = [];
       (async function () {
 
@@ -98,6 +112,8 @@ export default class extends Base {
       })();
       (async function () {
         const data = await getSeats(theatersSeatsId);//获取座位数据库数据
+        // console.log(data);
+        
         let str = "";
         for (let i = 1; i <= data[0].row; i++) {
           str += `<tr>`;
@@ -116,7 +132,7 @@ export default class extends Base {
           }
           str += `</tr>`;
         }
-        $("#seats-list").html(`${str}`) ;
+        document.querySelector("#seats-list").innerHTML = `${str}`;
         $("#seatsInquire").attr("disabled", true);
       })();
       return false;
@@ -155,29 +171,20 @@ export default class extends Base {
 
     //编辑按钮监听>>>>=====================================================
     layui.form.on('submit(seatsChange)', function (data) {
-      $("#seatsAll").html("");
+      $("#seatsHint").html("");
+      $("#seats-list").html("");
+      
+      
+      $("#selCinema").attr("selected",true);
+ 
+    
+      $("#selTheater").attr("selected",true);
       layer.open({
         type: 1,
         anim: 5,
         area: ['500px', '500px'],
         content: `<form class="layui-form layui-form-pane" action="" style="margin-left:20px;margin-top:40px">
-    <div class="layui-form-item">
-    <label class="layui-form-label layui-bg-red">影院</label>
-    <div class="layui-input-block" style="width:350px">
-      <select name="cinemasSeats" lay-verify="required" id="updateCinemas" lay-filter="updateCinemas">
-        <option value=""></option>
-
-      </select>
-    </div>
-  </div> <div class="layui-form-item">
-  <label class="layui-form-label layui-bg-red">放映厅</label>
-  <div class="layui-input-block" style="width:350px">
-    <select name="theatersSeats" lay-verify="required" id="updateTheaters" lay-filter="updateTheaters">
-      <option value=""></option>
-      
-    </select>
-  </div>
-</div>
+  
 <div class="layui-form-item">
 <label class="layui-form-label layui-bg-red">行</label>
 <div class="layui-input-block" style="width:350px">
@@ -198,7 +205,6 @@ export default class extends Base {
 </div>
 </form>`//这里content是一个普通的String
       });
-
       layui.form.verify({
         row: [
           /^[\S]{1,2}$/
@@ -207,50 +213,8 @@ export default class extends Base {
           /^[\S]{1,2}$/
         ]
       });
-      (async function () {
-        const dataCinemas = await getCinemas();
-        let str = `<option value="">请选择</option>`;
-        for (let i = 0; i < dataCinemas.length; i++) {
-          str += ` <option value="${dataCinemas[i]._id}" data-cinemasId="${dataCinemas[i]._id}">${dataCinemas[i].name}</option>`
-        }
-        $("#updateCinemas").html(`${str}`);
-        layui.form.render();
-      })()
-      let theatersSeatsId, rowFirst, colFirst;
-
-
-      //第一个下拉框监听=======================================================
-      layui.form.on('select(updateCinemas)', function (data) {
-        let id = data.value;
-        (async function () {
-          let str = `<option value="">请选择</option>`;
-          const dataTheaters = await getTheaters(id);
-          for (let i = 0; i < dataTheaters.length; i++) {
-            str += ` <option value="${dataTheaters[i]._id}" data-cinemasId="${dataTheaters[i]._id}">${dataTheaters[i].name}</option>`
-          }
-          $("#updateTheaters").html(`${str}`);
-          layui.form.render();
-        })();
-        return false;
-      });
-
-
-      //第二个下拉栏监听================================================================
-      layui.form.on('select(updateTheaters)', function (data) {
-        theatersSeatsId = data.value;
-        (async function () {
-          theatersSeatsId = `ObjectId("${theatersSeatsId}")`;
-          const data = await getSeats(theatersSeatsId);
-          rowFirst = `${data[0].row}`;
-          colFirst = `${data[0].col}`;
-          $("#rowSeats").val(`${data[0].row}`)
-          $("#colSeats").val(`${data[0].col}`)
-          layui.form.render();
-        })();
-        return false;
-      });
-
-
+          $("#rowSeats").val(`${rowFirst}`)
+          $("#colSeats").val(`${colFirst}`)
       //提交按钮监听================================================================
       layui.form.on('submit(updateSeats-btn)', function (data) {
         let Obj = {};
@@ -269,6 +233,7 @@ export default class extends Base {
           }
           location.hash = "#/admins/" + `inquireSeats`;
           layer.closeAll();
+          // return false;
         })();
         return false;
       })

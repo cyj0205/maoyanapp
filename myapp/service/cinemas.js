@@ -20,8 +20,6 @@ service.updateCinemas = async ({_id,name,address,phone,status}) => {
 //新加
 service.addCinemas = async ({name,address,phone,status}) => {
     const data = await cinemasDao.createCinemas({name,address,phone,status});
-    // console.log(data);
-    
     let isAdd = data?true:false;
     return { isAdd };
 }

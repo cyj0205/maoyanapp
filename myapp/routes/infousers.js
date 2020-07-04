@@ -85,7 +85,6 @@ export default class extends Base {
             that.afterMount();
             // console.log(layui.form.val("#search-form"), "111");
             const { search, searchValue } = layui.form.val("search-form");
-            console.log(search, searchValue, "val");
             that.tableIns.reload({
                 page: 1,
                 limit: searchValue ? 10000000 : 5,

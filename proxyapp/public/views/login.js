@@ -97,8 +97,6 @@ export default class extends Base {
             const { userName, userPassword } = data.field;
             (async function () {
                 const { isLogin, token } = await login({ userName,userPassword });
-                console.log(isLogin,"111");
-                
                 if (isLogin) {
                     layui.layer.msg('登录成功！');
                     localStorage.setItem("user_token", token);
@@ -106,7 +104,6 @@ export default class extends Base {
                 } else {
                     layui.layer.msg('再登录一次！');
                 }
-
             })();
             return false;
         });

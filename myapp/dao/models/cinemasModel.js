@@ -8,7 +8,6 @@ const cinemasSchema = mongoose.Schema({
     status: Boolean //影院是否营业
     // status: String //影院是否营业
 }, { versionKey: false });
-
 mongoose.model('cinemasModel', cinemasSchema, 'cinemas');
 module.exports = mongoose.model('cinemasModel')
 

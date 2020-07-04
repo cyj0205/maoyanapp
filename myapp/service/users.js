@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const usersDao = require("../dao/users");
 const service = {}
 service.login = async ({ userName,userPassword  }) => {
@@ -51,7 +51,7 @@ service.addUser = async ({ userName,userPassword,headPic }) => {
     return { isAdd };
 }
 module.exports = service;
-=======
+
 // // const usersDao = require("../dao/users");
 
 // const service = {}
@@ -79,4 +79,4 @@ module.exports = service;
 
 
 // module.exports = service;
->>>>>>> 1bc0d791fe28a596ebfd8ce87c4debf5f874daee
+

@@ -20,7 +20,7 @@ router.post('/login', async function (req, res, next) {
   const responseData = { isLogin };
   if (isLogin) {
     const token = jwt.sign({userName }, secretKey, {
-      expiresIn: 60 * 60
+      expiresIn: 60 * 60*60
     });
     responseData.token = token;
   }
@@ -31,7 +31,7 @@ router.post('/reg', async function (req, res, next) {
   userPassword = md5(userPassword);
   var options = {
     method: 'POST',
-    uri: 'http://localhost:3000/users/reg',
+    uri: targetUrl+ '/users/reg',
     body: {userName, userPassword },
     json: true // Automatically stringifies the body to JSON
   };

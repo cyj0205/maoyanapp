@@ -14,7 +14,6 @@ service.gettheaters = async ({ page, limit, condition }) => {
     data.total = Math.ceil(data.count / limit);//{count,total,rows}
     data.message = "数据请求成功";//{count,total,rows}
     data.status = 0;//{count,total,rows}
-
     return data;
 }
 
@@ -27,7 +26,6 @@ service.getcinemas = async () => {
 //新增
 service.addtheater = async (data) => {
     let isExist = await theatersDao.addtheaters(data);
-    console.log("新增数据层", isExist);
     // if (isExist.length < 1) {
     //     return null;
     // } else {
@@ -37,8 +35,6 @@ service.addtheater = async (data) => {
 
 //删除
 service.deletetheater = async function ({_id}) {
-    // console.log("222");
-
     // return await theatersDao.deletetheaters({ _id});
 
     const {deletedCount} = await theatersDao.deletetheaters({_id});
@@ -48,15 +44,8 @@ service.deletetheater = async function ({_id}) {
 
 //修改放映厅
 service.updatetheater = async function ({_id,name,status,cinemasId}) {
-
-
-    // return
    const {nModified} =  await theatersDao.updatetheaters({_id,name,status,cinemasId});
-   console.log("修改数据层",nModified);
-   
     let isUpdate = nModified>=1?true:false;
-    console.log(isUpdate);
-    
     return { isUpdate };
 }
 module.exports = service;

@@ -3,6 +3,8 @@ const router = express.Router();
 const usersService = require("../service/users");
 router.post('/login', async function (req, res, next) {
   const { userName,userPassword  } = req.body;
+  // console.log(userName,userPassword,"user");
+  
   const data = await usersService.login({userName,userPassword  });
   res.send(data);
 });
@@ -36,6 +38,8 @@ router.put('/:_id', async function (req, res, next) {
 router.post('/', async function (req, res, next) {
   const { userName, userPassword, headPic } = req.body;
   const data = await usersService.addUser({ userName, userPassword, headPic });
+  // console.log(data,"4444");
+  
   res.send(data);
 });
 module.exports = router;

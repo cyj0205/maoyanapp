@@ -13,8 +13,6 @@ service.find = async ({page,limit,condition}) => {
     data.total = Math.ceil(data.count/limit);
     data.message = "数据成功返回";
     data.status = 0;
-    // console.log(data);
-    
     return { data };
 }
 service.deleteMovies = async ({_id}) => {

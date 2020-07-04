@@ -72,7 +72,7 @@ export default class extends Base {
                     field: 'status', title: '是否营业', width: 110, sort: true, templet: function (d) {
                         if (d.status) {
                             return `<p>营业中</p>`
-                        } else  {
+                        } else {
                             return `<p>未营业</p>`
                         }
                     }
@@ -94,35 +94,24 @@ export default class extends Base {
             if (obj.event === 'del') {
                 layer.confirm('真的要删除吗？', async function (index) {
                     const _id = data._id;
-<<<<<<< HEAD
-                    if (data.status==="营业中") {
-                        layer.alert("正在营业中，不能删除！！！！！！");
-=======
-                    // const { isDelete } = await delCinemas({ _id });
-                    
-                    // if (isDelete) {
-                    //     layer.alert("删除成功！");
-                    //     obj.del();
-                    // }
-                    if (data.status===true) {
+                    if (data.status === true) {
                         layer.alert("正在营业中，不能删除！");
->>>>>>> 478c5bbab4ebc93b3c3d2d064027e7a34649c105
                     } else {
                         const { isDelete } = await delCinemas({ _id });
                         if (isDelete) {
                             layer.alert("删除成功！");
                             obj.del();
-                        } 
+                        }
                     }
                 });
             }
             else if (obj.event === 'edit') {//编辑按钮
                 location.hash = "/admins/updateCinemas";//取对应事件的回掉直接调用，非异步
                 setTimeout(() => {
-                    if(data.status===true){
-                        $("#statusTrue").attr("checked",true)
-                    }else if(data.status===false){
-                        $("#statusFalse").attr("checked",true)
+                    if (data.status === true) {
+                        $("#statusTrue").attr("checked", true)
+                    } else if (data.status === false) {
+                        $("#statusFalse").attr("checked", true)
                     }
                     layui.form.val('updateCinemas-form', data);
                 });

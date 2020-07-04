@@ -12,6 +12,4 @@ service.updateSeats = async ({row,col,theaterId}) => {
     return { isUpdate };
 }
 
-
-
 module.exports = service;

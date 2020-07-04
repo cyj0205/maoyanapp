@@ -21,8 +21,6 @@ router.get('/', async function (req, res, next) {
 router.put('/:_id', async function(req, res, next) {
   // const _id=req.params;
   const {_id,name,address,phone,status} = req.body;
-  console.log(_id,name,address,phone,status);
-  
   const data = await cinemasService.updateCinemas({_id,name,address,phone,status});
   res.send(data);
 });

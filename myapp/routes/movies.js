@@ -15,8 +15,6 @@ const {data} = await moviesService.find({page,limit,condition});
   // res.header({
   //   "Access-Control-Allow-Origin":"*"
   // });
-  console.log(data);
-  
   res.send(data);
   // res.send(`${callback}(${JSON.stringify(data)})`);
 });
@@ -26,7 +24,6 @@ router.delete('/:_id', async function(req, res, next) {
   res.send(data);
 });
 router.put('/:_id', async function(req, res, next) {
-  // console.log("1111");
   
   const {_id,cname,area,ename,type,poster,time,update,score,count,intro,isClassic,director,actor,images} = req.body;
   const data = await moviesService.updateMovies({_id,cname,area,ename,type,poster,time,update,score,count,intro,isClassic,director,actor,images});
@@ -34,8 +31,6 @@ router.put('/:_id', async function(req, res, next) {
 });
 router.post('/', async function(req, res, next) {
   const {cname,area,ename,type,poster,time,update,score,count,intro,isClassic,director,actor,images} = req.body;
-  console.log(cname,area,ename,type,poster,time,update,score,count,intro,isClassic,director,actor,images,"add");
-  
   const data = await moviesService.addMovies({cname,area,ename,type,poster,time,update,score,count,intro,isClassic,director,actor,images});
   res.send(data);
 });

@@ -5,8 +5,6 @@ const adminSchema = mongoose.Schema({
   adminName: String,
   adminPassword: String
 }, { versionKey: false });
-const adminModel = mongoose.model('admin', adminSchema);
+mongoose.model('adminModel',adminSchema,'admins');
 //"admin"必须与数据库集合名称一致
-
-
-module.exports = adminModel;
+module.exports = mongoose.model('adminModel');

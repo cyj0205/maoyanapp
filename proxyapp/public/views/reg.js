@@ -1,5 +1,6 @@
 import Base from "./base.js"
 import { reg } from "../service/users.js";
+let isExcute = false;
 export default class extends Base {
     render() {
         const template =
@@ -76,6 +77,10 @@ export default class extends Base {
             })();
             return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
         });
+        if(isExcute){
+            return;
+        }
+        isExcute = true;
         $(document).on("click",".layui-icon-userPassword", function () {
             //#1E9FFF
             

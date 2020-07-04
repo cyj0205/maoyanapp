@@ -1,7 +1,7 @@
 const usersModel = require("./models/usersModel");
 const dao = {}
 dao.findUser = async (condition)=>{
-    console.log(condition);
+    console.log(await usersModel.find(condition),"con");
     
     return await usersModel.find(condition);
 }
@@ -9,6 +9,8 @@ dao.findUser = async (condition)=>{
 dao.createUser = async ({ userName,userPassword })=>{
     return await usersModel.create({  userName,userPassword });
 }
+
+
 
 //增删查改
 dao.findusers = async ({page,limit, condition })=>{

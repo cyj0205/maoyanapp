@@ -25,26 +25,23 @@ export async function getStudents(userTxt) {
     return data;
 }
 
-
 //删除
 export async function delStudents({ _id }) {
     const { data } = await axiosIns.delete("/api/schedules/" + _id)
     return data;
 }
 
-
 //修改
-export async function updateStudents(stuTxt, _id) {
+export async function updateStudents(Txt, _id) {   //(参数) 数据库排片数据，和id
     const { data } = await axiosIns.put(
         "/api/schedules/" + _id,
-        stuTxt
+        Txt
     );
     return data;
 }
 
-
 //添加
-export async function addStudents(studentsTxt) {
+export async function addStudents(studentsTxt) {  //数据库排片数据
     const { data } = await axiosIns.post(
         "/api/schedules/",
         studentsTxt

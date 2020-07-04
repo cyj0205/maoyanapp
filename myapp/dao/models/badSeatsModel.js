@@ -5,12 +5,7 @@ const badSeatsSchema = mongoose.Schema({
     dataId:String,
     theaterId:String
   }, { versionKey: false });
-
-const badSeatsModel = mongoose.model('badseats', badSeatsSchema);
-  //"users"必须与数据库集合名称一致
-module.exports = badSeatsModel;
-
- mongoose.model('badSeatsModel', badSeatsSchema,'badseats');
+mongoose.model('badSeatsModel', badSeatsSchema,'badseats');
   //"users"必须与数据库集合名称一致
 module.exports = mongoose.model('badSeatsModel');
 

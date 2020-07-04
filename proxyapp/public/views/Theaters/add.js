@@ -16,7 +16,6 @@ export default class extends Base {
         </div>
        
 
-
         <div class="layui-form-item">
         <label class="layui-form-label">所属影院</label>
         <div class="layui-input-block" style="width: 300px;">
@@ -48,8 +47,6 @@ export default class extends Base {
     
         (async function () {//获取影院名字  从主服务器里面获取cinemasId里面的所有不同名字 生成下拉列表
             const data = await getcinemas();
-            console.log("获取影院数据库下拉框", data);
-
             const template = data.rows.map(cl => `<option value="${cl._id}">${cl.name}</option>`).join();
             $("select[name='cinemasId']").html(template);
             layui.form.render();
@@ -61,11 +58,7 @@ export default class extends Base {
         layui.form.on('submit(add-btn)', function (data) {
             (async function () {
                 const newTheaters = data.field;//获取更新表单中的学生数据
-
                 const { name } = await addtheater(newTheaters);
-                // console.log(newTheaters,"new");
-                console.log(name,"is");
-                
                 if (name) {
                     layui.layer.msg("添加成功！");
                     location.hash = "/admins/theaters";

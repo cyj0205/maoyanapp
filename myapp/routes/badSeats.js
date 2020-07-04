@@ -4,7 +4,6 @@ const badSeatsService = require("../service/badSeats");
 
 router.get('/:theatersSeatsId', async function(req, res, next) {
     let {theatersSeatsId} = req.params;
-    console.log(theatersSeatsId);
     const data = await badSeatsService.getBadSeats(theatersSeatsId);
     res.send(data);
   });
