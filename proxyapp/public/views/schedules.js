@@ -6,10 +6,7 @@ import { getStudents } from "../service/students.js"
 
 export default class extends Base {
   render() {
-    // console.log("info render");
-
     const template = `
-    
     <div type="text/html" id="toolbarSearch" >
     <div class="layui-form" lay-filter="search-form" style="display:flex;">
     <button id="addSchedules" class="layui-btn" lay-filter="addSchedules">立即添加</button>
@@ -100,8 +97,6 @@ export default class extends Base {
   handler() {
     const that = this;
     // layui.form.on('select(find-list)', function (data) {
-    //   console.log(111);
-
     //   layui.form.render();
     //   return false;
     // })
@@ -259,6 +254,7 @@ export default class extends Base {
       }
     });
     // const that = this;
+    //修改
     layui.form.on('submit(update-btn)', function (data) {
       (async function () {
         const schedules = data.field;//获取更新表单中的学生数据
@@ -357,19 +353,6 @@ export default class extends Base {
         url: '/api/schedules'
       })
     })
-    // layui.table.on('toolbar(schedules-list)', async function (obj) {
-    //   $("#search-btn").on("click", async function (obj) {
-    //   const { search, searchValue } = layui.form.val("search-form");
-    //   console.log(search, searchValue,"ser");
-
-    //   that.tableIns.reload({
-    //     page: 1,
-    //     limit: searchValue ? 10000000 : 5,
-    //     where: {
-    //       condition: { [search]: searchValue }
-    //     }
-    //   });
-    // })
   }
 
   reloadList() {

@@ -79,8 +79,6 @@ export function upload(url, keyName, file) {
 // }
 
 export async function searchStudents(condition) {  //搜索
-    console.log(condition);
-    
     const {data} = await axiosIns.post(
         "/api/schedules/searchStudents",
         condition
